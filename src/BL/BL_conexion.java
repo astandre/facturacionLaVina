@@ -1,8 +1,8 @@
 package BL;
-import DAT.DATconexion;
+import DAT.DAT_conexion;
 import java.sql.SQLException;
-public class BLconexion {
-    DATconexion manejadorConexion = new DATconexion();
+public class BL_conexion {
+    DAT_conexion manejadorConexion = new DAT_conexion();
     public void abrirConexion() throws ClassNotFoundException, SQLException{
         manejadorConexion.openConnection();
         

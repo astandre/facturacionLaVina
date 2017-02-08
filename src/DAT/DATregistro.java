@@ -15,7 +15,7 @@ import java.sql.Statement;
  * @author USUARIO
  */
 public class DATregistro {
-     DAT.DATconexion c = new DATconexion();
+     DAT.DAT_conexion c = new DAT_conexion();
      public ResultSet Consultar() throws ClassNotFoundException, SQLException{
     Statement st = c.getConnection().createStatement();
    String sentencia ="SELECT * FROM guarderia";
