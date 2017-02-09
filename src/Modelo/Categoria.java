@@ -21,6 +21,10 @@ public class Categoria {
         this.nombre_categoria = nombre_categoria;
         this.lst_productos = lst_productos;
     }
+
+    public Categoria() {
+    }
+    
       /**
      * @return the cod_categoria
      */

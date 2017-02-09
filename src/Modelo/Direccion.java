@@ -10,33 +10,27 @@ package Modelo;
  * @author USUARIO
  */
 public class Direccion {
-    private int cod_direccion;
+
     private int cod_cliente_direccion;
     private String calles_direccion;
     private String barrio_direccion;
     private String numCasa_direccion;
 
-    
-    public Direccion(int cod_direccion, int cod_cliente_direccion, String calles_direccion, String barrio_direccion, String numCasa_direccion) {
-        this.cod_direccion = cod_direccion;
+    public Direccion(int cod_cliente_direccion, String calles_direccion, String barrio_direccion, String numCasa_direccion) {
+
         this.cod_cliente_direccion = cod_cliente_direccion;
         this.calles_direccion = calles_direccion;
         this.barrio_direccion = barrio_direccion;
         this.numCasa_direccion = numCasa_direccion;
     }
 
-    /**
-     * @return the cod_direccion
-     */
-    public int getCod_direccion() {
-        return cod_direccion;
+    public Direccion(String calles_direccion, String barrio_direccion, String numCasa_direccion) {
+        this.calles_direccion = calles_direccion;
+        this.barrio_direccion = barrio_direccion;
+        this.numCasa_direccion = numCasa_direccion;
     }
 
-    /**
-     * @param cod_direccion the cod_direccion to set
-     */
-    public void setCod_direccion(int cod_direccion) {
-        this.cod_direccion = cod_direccion;
+    public Direccion() {
     }
 
     /**
@@ -94,5 +88,5 @@ public class Direccion {
     public void setNumCasa_direccion(String numCasa_direccion) {
         this.numCasa_direccion = numCasa_direccion;
     }
-    
+
 }

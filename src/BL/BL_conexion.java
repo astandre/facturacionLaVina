@@ -7,6 +7,9 @@ public class BL_conexion {
         manejadorConexion.openConnection();
         
     }
+    public void getConexion()throws ClassNotFoundException, SQLException{
+        manejadorConexion.getConnection();
+    }
     public void cerrarConexion() throws SQLException{
         manejadorConexion.closeConnection();
     }

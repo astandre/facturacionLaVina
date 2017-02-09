@@ -5,7 +5,8 @@
  */
 package BL;
 
-import DAT.DAT_cliente;
+import DAT.DAT_clientes;
+import DAT.DAT_direccion;
 
 import Modelo.Cliente;
 import Modelo.Direccion;
@@ -20,15 +21,15 @@ import java.util.ArrayList;
  * @author Expression Andre is undefined on line 12, column 14 in
  * Templates/Classes/Class.java.
  */
-public class BL_cliente {
+public class BL_clientes {
 
-    DAT_cliente manejadorClientes = new DAT_cliente();
-
+    DAT_clientes manejadorClientes = new DAT_clientes();
+    DAT_direccion manejadorDireccion = new DAT_direccion();
     ArrayList<Cliente> lstClientes;
 
-    public int insertarCliente(Cliente objCliente) throws ClassNotFoundException, SQLException {
+    public int insertarClientes(Cliente objCliente) throws ClassNotFoundException, SQLException {
         int isClienteInserted;
-        int isDireccionInserted = 0;
+        int isDireccionInserted;
         int master = 0;
         ResultSet rs;
 
@@ -55,23 +56,15 @@ public class BL_cliente {
         String itc_barrio = objDireccion.getBarrio_direccion();
         String itc_numCasa = objDireccion.getNumCasa_direccion();
 
-        isDireccionInserted = manejadorClientes.insertarDireccion(master, itc_calle, itc_barrio, itc_numCasa);
+        isDireccionInserted = manejadorDireccion.insertarDireccion(master, itc_calle, itc_barrio, itc_numCasa);
 
         return isDireccionInserted;
     }
 
-    public int insertarDireccion(Direccion objDireccion) throws ClassNotFoundException, SQLException {
-
-        return manejadorClientes.insertarDireccion(objDireccion.getCod_cliente_direccion(), objDireccion.getCalles_direccion(),
-                objDireccion.getBarrio_direccion(), objDireccion.getNumCasa_direccion());
-
-    }
-
-    public ArrayList<Cliente> Consultar() throws ClassNotFoundException, SQLException, ParseException {
+    public ArrayList<Cliente> ConsultarClientes() throws ClassNotFoundException, SQLException, ParseException {
         lstClientes = new ArrayList<>();
 
         int columnCount;
-        int incremento = 0;
         ResultSet rs;
         rs = manejadorClientes.consultarClientes();
         ResultSetMetaData rm = rs.getMetaData();
@@ -82,38 +75,68 @@ public class BL_cliente {
             columnas.add(columname);
         }
         while (rs.next()) {
-            Cliente m = new Cliente();
+            Cliente newCliente = new Cliente();
             for (String columnames : columnas) {
                 String value = rs.getString(columnames);
-                if (columnames.equals("cod_cliente")) {
-                    m.setCod_cliente(Integer.parseInt(value));
+                if (columnames.equals("COD_CLIENTE")) {
+                    newCliente.setCod_cliente(Integer.parseInt(value));
                 }
-                if (columnames.equals("cedula_cliente")) {
-                    m.setCedula_cliente(value);
+                if (columnames.equals("CEDULA_CLIENTE")) {
+                    newCliente.setCedula_cliente(value);
                 }
-                if (columnames.equals("cedula_cliente")) {
-                    m.setCedula_cliente(value);
+                if (columnames.equals("NOMBRE_CLIENTE")) {
+                    newCliente.setNombre_cliente(value);
                 }
-                if (columnames.equals("apellido_cliente")) {
-                    m.setApellido_cliente(value);
+                if (columnames.equals("APELLIDO_CLIENTE")) {
+                    newCliente.setApellido_cliente(value);
                 }
-                if (columnames.equals("telefono_fijo_cliente")) {
-                    m.setTelefono_fijo_cliente(value);
+                if (columnames.equals("TELEFONO_FIJO_CLIENTE")) {
+                    newCliente.setTelefono_fijo_cliente(value);
                 }
-                if (columnames.equals("telefono_movil_cliente")) {
-                    m.setTelefono_movil_cliente(value);
+                if (columnames.equals("TELEFONO_MOVIL_CLIENTE")) {
+                    newCliente.setTelefono_movil_cliente(value);
+                }
+                if (columnames.equals("EMAIL_CLIENTE")) {
+                    newCliente.setEmail_cliente(value);
 
                 }
-                if (columnames.equals("email_cliente")) {
-                    m.setEmail_cliente(value);
-
-                }
-
+                
             }
-            lstClientes.add(m);
-            incremento = incremento + 1;
+lstClientes.add(newCliente);
         }
 
+        rs = manejadorDireccion.consultarDireccion();
+        rm = rs.getMetaData();
+        columnCount = rm.getColumnCount();
+        columnas = new ArrayList<>();
+        for (int j = 1; j < columnCount + 1; j++) {
+            String columname = rm.getColumnName(j);
+                       columnas.add(columname);
+        }
+
+        int i = 0;
+        while (rs.next()) {
+           
+            Direccion m = new Direccion();
+            for (String columnames : columnas) {
+                String value = rs.getString(columnames);
+                if (columnames.equals("COD_CLIENTE_DIRECCION")) {
+                    m.setCod_cliente_direccion(Integer.parseInt(value));
+                }
+                if (columnames.equals("CALLES_DIRECCION")) {
+                    m.setCalles_direccion(value);
+                }
+                if (columnames.equals("BARRIO_DIRECCION")) {
+                    m.setBarrio_direccion(value);
+                }
+                if (columnames.equals("NUMCASA_DIRECCION")) {
+                    m.setNumCasa_direccion(value);
+                }
+                
+            }
+lstClientes.get(i).setDireccion_cliente(m);
+                i++;
+        }
         return lstClientes;
     }
 

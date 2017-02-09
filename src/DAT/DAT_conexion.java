@@ -5,20 +5,20 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DAT_conexion {
-public Connection con;
+public Connection dbConecction;
 public Connection getConnection() throws ClassNotFoundException, SQLException {
     String driver ="com.mysql.jdbc.Driver";
-    String url ="jdbc:mysql://localhost:3306/guarderia";
+    String url ="jdbc:mysql://localhost:3306/sistema_pedidos";
     Class.forName(driver);
     return DriverManager.getConnection(url, "root","");
     
 }
 public Connection openConnection() throws ClassNotFoundException, SQLException{
-    con = getConnection();
+    dbConecction = getConnection();
     
-    return con;
+    return dbConecction;
 }
 public void closeConnection() throws SQLException{
-    con.close();
+    dbConecction.close();
 }
 }
