@@ -22,8 +22,6 @@ public class DAT_clientes {
         return pst.executeQuery();
     }
 
-    
-
     public int instertarCliente(String cedula_cliente, String nombre_cliente,
             String apellido_cliente, String telefono_fijo_cliente, String telefono_movil_cliente, String email_cliente) throws ClassNotFoundException, SQLException {
         String Sentencia = "INSERT INTO clientes (cedula_cliente, nombre_cliente, "
@@ -40,21 +38,18 @@ public class DAT_clientes {
 
         return ps.executeUpdate();
     }
-    /*
-    INSERT INTO `clientes`( `CEDULA_CLIENTE`, `NOMBRE_CLIENTE`, `APELLIDO_CLIENTE`,
-    `TELEFONO_FIJO_CLIENTE`, `TELEFONO_MOVIL_CLIENTE`, `EMAIL_CLIENTE`) 
-    VALUES ( "1717836611", "Rommel Andre", "Herrera", "2300211", "0961561342",
-    "andreherrera97@hotmail.com")*/
-    /*public int delete(String strCondicion) throws ClassNotFoundException, SQLException{
-     String Sentencia = "DELETE FROM guarderia WHERE cod_guarderia = ?";
-     PreparedStatement ps = c.getConnection().prepareStatement(Sentencia);
-     ps.setString(1, strCondicion);
-     return ps.executeUpdate();
-     }
-     public int update(String value,String dbColNames[],int iCol,int id) throws ClassNotFoundException, SQLException{
-     String sql = String.format("UPDATE guarderia SET %s = %d WHERE cod_guarderia = %d", 
-     dbColNames[iCol], value, id);
-     PreparedStatement ps = c.getConnection().prepareStatement(sql);
-     return ps.executeUpdate();
-     }*/
+
+    public int eliminarCliente(String strCondicion) throws ClassNotFoundException, SQLException {
+        String Sentencia = "DELETE FROM clientes WHERE COD_CLIENTE = ?";
+        PreparedStatement ps = c.getConnection().prepareStatement(Sentencia);
+        ps.setString(1, strCondicion);
+        return ps.executeUpdate();
+    }
+
+    public int update(String newValue, String dbColNames[], int indexColumn, int cod_cliente) throws ClassNotFoundException, SQLException {
+        String sql = String.format("UPDATE clientes SET %s = '%s' WHERE COD_CLIENTE = %d",
+                dbColNames[indexColumn], newValue, cod_cliente);
+        PreparedStatement ps = c.getConnection().prepareStatement(sql);
+        return ps.executeUpdate();
+    }
 }

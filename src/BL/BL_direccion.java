@@ -22,4 +22,10 @@ public int insertarDireccion(Direccion objDireccion) throws ClassNotFoundExcepti
                 objDireccion.getBarrio_direccion(), objDireccion.getNumCasa_direccion());
 
     }
+public int updateDireccion(String newValue, int indexColum, int cod_cliente) throws ClassNotFoundException, SQLException {
+
+        String dbColNames[] = {"COD_CLIENTE_DIRECCION", "CALLES_DIRECCION", 
+            "BARRIO_DIRECCION", "NUMCASA_DIRECCION"};
+        return manejadorDireccion.updateDireccion(newValue, dbColNames, indexColum, cod_cliente);
+    }
 }

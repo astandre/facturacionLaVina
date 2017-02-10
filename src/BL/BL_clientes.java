@@ -100,9 +100,9 @@ public class BL_clientes {
                     newCliente.setEmail_cliente(value);
 
                 }
-                
+
             }
-lstClientes.add(newCliente);
+            lstClientes.add(newCliente);
         }
 
         rs = manejadorDireccion.consultarDireccion();
@@ -111,12 +111,12 @@ lstClientes.add(newCliente);
         columnas = new ArrayList<>();
         for (int j = 1; j < columnCount + 1; j++) {
             String columname = rm.getColumnName(j);
-                       columnas.add(columname);
+            columnas.add(columname);
         }
 
         int i = 0;
         while (rs.next()) {
-           
+
             Direccion m = new Direccion();
             for (String columnames : columnas) {
                 String value = rs.getString(columnames);
@@ -132,21 +132,32 @@ lstClientes.add(newCliente);
                 if (columnames.equals("NUMCASA_DIRECCION")) {
                     m.setNumCasa_direccion(value);
                 }
-                
+
             }
-lstClientes.get(i).setDireccion_cliente(m);
-                i++;
+            lstClientes.get(i).setDireccion_cliente(m);
+            i++;
         }
         return lstClientes;
     }
 
-    /*public int Eliminar(String strCondicion) throws ClassNotFoundException, SQLException {
-     return manejadorClientes.delete(strCondicion);
-     }
+    public int eliminarCliente(String strCondicion) throws ClassNotFoundException, SQLException {
+        int a = manejadorDireccion.eliminarDireccion(strCondicion);
+        int b = manejadorClientes.eliminarCliente(strCondicion);
+        int estado;
+        if (a == 1 && b == 1) {
+            estado = 1;
+        } else {
+            estado = 0;
+        }
+        return estado;
+    }
 
-     public int update(String value, int iCol, int id) throws ClassNotFoundException, SQLException {
+    public int updateClientes(String newValue, int indexColum, int cod_cliente) throws ClassNotFoundException, SQLException {
 
-     String dbColNames[] = {"nombres_padre", "fecha_nacimiento_padre", "correo_padre", "telefono_padre", "celular_padre", "nombres_nino", "fecha_nacimiento_nino", "tipo_sangre_nino", "alergias_nino", "vacunas_nino", "medicamentos_nino", "dias", "fecha_registro"};
-     return manejadorClientes.update(value, dbColNames, iCol, id);
-     }*/
+        String dbColNames[] = {"COD_CLIENTE", "CEDULA_CLIENTE", 
+            "NOMBRE_CLIENTE", "APELLIDO_CLIENTE",
+            "TELEFONO_FIJO_CLIENTE", "TELEFONO_MOVIL_CLIENTE",
+            "EMAIL_CLIENTE"};
+        return manejadorClientes.update(newValue, dbColNames, indexColum, cod_cliente);
+    }
 }

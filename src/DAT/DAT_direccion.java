@@ -33,4 +33,16 @@ public int insertarDireccion(int cod_cliente_direccion, String calles_direccion,
         ResultSet rs = st.executeQuery(sentencia);
         return rs;
     }
+  public int eliminarDireccion(String strCondicion) throws ClassNotFoundException, SQLException{
+     String Sentencia = "DELETE FROM direccion WHERE COD_CLIENTE_DIRECCION = ?";
+     PreparedStatement ps = conecctionHandler.getConnection().prepareStatement(Sentencia);
+     ps.setString(1, strCondicion);
+     return ps.executeUpdate();
+     }
+  public int updateDireccion(String newValue, String dbColNames[], int indexColumn, int cod_cliente_direccion) throws ClassNotFoundException, SQLException {
+        String sql = String.format("UPDATE direccion SET %s = '%s' WHERE COD_CLIENTE_DIRECCION = %d",
+                dbColNames[indexColumn], newValue, cod_cliente_direccion);
+        PreparedStatement ps = conecctionHandler.getConnection().prepareStatement(sql);
+        return ps.executeUpdate();
+    }
 }
