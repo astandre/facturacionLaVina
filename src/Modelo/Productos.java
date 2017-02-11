@@ -24,6 +24,9 @@ public class Productos {
         this.precio_producto = precio_producto;
     }
 
+    public Productos() {
+    }
+
     /**
      * @return the cod_producto
      */

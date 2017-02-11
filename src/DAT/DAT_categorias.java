@@ -31,17 +31,7 @@ DAT.DAT_conexion c = new DAT_conexion();
         return pst.executeQuery();
     }
 
-    public int insertarProductos(int cod_categoria, String nombre_producto, String tamano_producto, double precio_producto) throws ClassNotFoundException, SQLException {
-        String sentencia = "INSERT INTO adm_item_catalogo(itc_cat_id, itc_codigo,itc_nombre,itc_estado) "
-                + "VALUES (?,?,?,?)";
-        PreparedStatement ps = c.getConnection().prepareStatement(sentencia);
-        ps.setInt(1, cod_categoria);
-        ps.setString(2, nombre_producto);
-        ps.setString(3, tamano_producto);
-        ps.setDouble(4, precio_producto);
-
-        return ps.executeUpdate();
-    }
+    
 
     public int instertarCategorias(String nombreCategoria) throws ClassNotFoundException, SQLException {
         String Sentencia = "INSERT INTO cliente (cedula_cliente, nombre_cliente, "
