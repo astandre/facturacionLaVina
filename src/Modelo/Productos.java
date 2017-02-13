@@ -23,6 +23,18 @@ public class Productos {
         this.tamano_producto = tamano_producto;
         this.precio_producto = precio_producto;
     }
+     public Productos( int cod_categoria, String nombre_producto, char tamano_producto, double precio_producto) {
+        this.cod_categoria = cod_categoria;
+        this.nombre_producto = nombre_producto;
+        this.tamano_producto = tamano_producto;
+        this.precio_producto = precio_producto;
+    }
+      public Productos(  String nombre_producto, char tamano_producto, double precio_producto) {
+      
+        this.nombre_producto = nombre_producto;
+        this.tamano_producto = tamano_producto;
+        this.precio_producto = precio_producto;
+      }
 
     public Productos() {
     }

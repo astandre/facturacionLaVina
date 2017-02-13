@@ -20,13 +20,13 @@ DAT.DAT_conexion c = new DAT_conexion();
 
     public ResultSet consultarCategorias() throws ClassNotFoundException, SQLException {
         Statement st = c.getConnection().createStatement();
-        String sentencia = "SELECT * FROM clientes";
+        String sentencia = "SELECT * FROM categoria";
         ResultSet rs = st.executeQuery(sentencia);
         return rs;
     }
 
     public ResultSet getIdCategorias() throws ClassNotFoundException, SQLException {
-        String sentencia = "SELECT max(cat_id) FROM clientes";
+        String sentencia = "SELECT max(COD_CATEGORIA) FROM categoria";
         PreparedStatement pst = c.getConnection().prepareStatement(sentencia);
         return pst.executeQuery();
     }
@@ -34,9 +34,7 @@ DAT.DAT_conexion c = new DAT_conexion();
     
 
     public int instertarCategorias(String nombreCategoria) throws ClassNotFoundException, SQLException {
-        String Sentencia = "INSERT INTO cliente (cedula_cliente, nombre_cliente, "
-                + "apellido_cliente, telefono_fijo_cliente,telefono_movil_cliente,"
-                + "email_cliente"
+        String Sentencia = "INSERT INTO categoria (NOMBRE_CATEGORIA)"
                 + "VALUES (?)";
         PreparedStatement ps = c.getConnection().prepareStatement(Sentencia);
         ps.setString(1, nombreCategoria);

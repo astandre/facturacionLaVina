@@ -33,7 +33,7 @@ public class BL_categorias {
         int master = 0;
         ResultSet rs;
 
-        //Insertar cabecera de Clientes
+        //Insertar cabecera de Categorias
         isCategoriaInserted = manejadorCategorias.instertarCategorias(objCategoria.getNombre_categoria());
         System.out.println("CategoriaInserted:" + isCategoriaInserted);
         if (isCategoriaInserted == 1) {
@@ -80,10 +80,10 @@ public class BL_categorias {
             Categoria m = new Categoria();
             for (String columnames : columnas) {
                 String value = rs.getString(columnames);
-                if (columnames.equals("cod_categoria")) {
+                if (columnames.equals("COD_CATEGORIA")) {
                     m.setCod_categoria(Integer.parseInt(value));
                 }
-                if (columnames.equals("nombre_categoria")) {
+                if (columnames.equals("NOMBRE_CATEGORIA")) {
                     m.setNombre_categoria(value);
                 }
 
@@ -100,7 +100,7 @@ public class BL_categorias {
             columnas.add(columname);
         }
 
-             ArrayList<Productos> lstProductosAux = new ArrayList<>();
+           ArrayList<Productos> lstProductosAux = new ArrayList<>();
         while (rs.next()) {
 
             Productos objProducto = new Productos();

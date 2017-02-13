@@ -12,9 +12,10 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class Categoria {
-   private int cod_categoria;
-   private String nombre_categoria;
-   private ArrayList<Productos> lst_productos;
+
+    private int cod_categoria;
+    private String nombre_categoria;
+    private ArrayList<Productos> lst_productos;
 
     public Categoria(int cod_categoria, String nombre_categoria, ArrayList<Productos> lst_productos) {
         this.cod_categoria = cod_categoria;
@@ -22,10 +23,15 @@ public class Categoria {
         this.lst_productos = lst_productos;
     }
 
+    public Categoria(String nombre_categoria, ArrayList<Productos> lst_productos) {
+        this.nombre_categoria = nombre_categoria;
+        this.lst_productos = lst_productos;
+    }
+
     public Categoria() {
     }
-    
-      /**
+
+    /**
      * @return the cod_categoria
      */
     public int getCod_categoria() {
@@ -66,5 +72,5 @@ public class Categoria {
     public void setLst_productos(ArrayList<Productos> lst_productos) {
         this.lst_productos = lst_productos;
     }
-   
+
 }

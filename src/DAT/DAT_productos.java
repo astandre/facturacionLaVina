@@ -18,7 +18,7 @@ import java.sql.Statement;
 public class DAT_productos {
     DAT.DAT_conexion conecctionHandler = new DAT_conexion();
 public int insertarProductos(int cod_categoria, String nombre_producto, String tamano_producto, double precio_producto) throws ClassNotFoundException, SQLException {
-        String sentencia = "INSERT INTO adm_item_catalogo(itc_cat_id, itc_codigo,itc_nombre,itc_estado) "
+        String sentencia = "INSERT INTO productos(COD_CATEGORIA, NOMBRE_PRODUCTO,TAMANO_PRODUCTO,PRECIO_PRODUCTO) "
                 + "VALUES (?,?,?,?)";
         PreparedStatement ps = conecctionHandler.getConnection().prepareStatement(sentencia);
         ps.setInt(1, cod_categoria);
