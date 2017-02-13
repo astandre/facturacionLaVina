@@ -5,9 +5,12 @@
         <group>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/sistemapedidos/SistemaPedidos.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/BL/BL_categorias.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/Modelo/Categoria.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/DAT/DAT_categorias.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/RESOURCES/BDTest.sql</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/Modelo/Items.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/DAT/DAT_items.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/BL/BL_factura.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/DAT/DAT_factura.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/Modelo/Factura.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/FacturacionLaVina/src/BL/BL_items.java</file>
         </group>
     </open-files>
 </project-private>

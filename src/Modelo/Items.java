@@ -15,16 +15,31 @@ public class Items {
     private Productos item;
     private int cantidad_items;
     private double precio_total_item;
-    private char llevar_item; //s si n no
+    private char llevar_item; 
+    private String comentario;//s si n no
 
-    public Items(int cod_factura_items, int cod_producto_items, Productos item, int cantidad_items, double precio_total_item, char llevar_item) {
+    public Items() {
+    }
+
+    public Items(int cod_factura_items, int cod_producto_items, Productos item, int cantidad_items, double precio_total_item, char llevar_item, String comentario) {
         this.cod_factura_items = cod_factura_items;
         this.cod_producto_items = cod_producto_items;
         this.item = item;
         this.cantidad_items = cantidad_items;
         this.precio_total_item = precio_total_item;
         this.llevar_item = llevar_item;
+        this.comentario = comentario;
     }
+       public Items(int cod_producto_items, Productos item, int cantidad_items, double precio_total_item, char llevar_item, String comentario) {
+        this.cod_producto_items = cod_producto_items;
+        this.item = item;
+        this.cantidad_items = cantidad_items;
+        this.precio_total_item = precio_total_item;
+        this.llevar_item = llevar_item;
+        this.comentario = comentario;
+    }
+
+
 
     /**
      * @return the cod_factura_items
@@ -108,6 +123,20 @@ public class Items {
      */
     public void setLlevar_item(char llevar_item) {
         this.llevar_item = llevar_item;
+    }
+
+    /**
+     * @return the comentario
+     */
+    public String getComentario() {
+        return comentario;
+    }
+
+    /**
+     * @param comentario the comentario to set
+     */
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
     
 }

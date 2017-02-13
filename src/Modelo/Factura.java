@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 public class Factura {
     private int cod_factura;
+    private String num_factura;
     private int cod_cliente_factura;
     private Cliente cliente_factura;
     private Date fecha;
@@ -25,8 +26,12 @@ public class Factura {
     private double valor_total_factura;
      private ArrayList<Items> lst_items_factura;
 
-    public Factura(int cod_factura, int cod_cliente_factura, Cliente cliente_factura, Date fecha, char metodo_pago_factura, double precio_total_factura, double valor_extra_factura, double valor_total_factura, ArrayList<Items> lst_items_factura) {
+    public Factura() {
+    }
+
+    public Factura(int cod_factura, String num_factura, int cod_cliente_factura, Cliente cliente_factura, Date fecha, char metodo_pago_factura, double precio_total_factura, double valor_extra_factura, double valor_total_factura, ArrayList<Items> lst_items_factura) {
         this.cod_factura = cod_factura;
+        this.num_factura = num_factura;
         this.cod_cliente_factura = cod_cliente_factura;
         this.cliente_factura = cliente_factura;
         this.fecha = fecha;
@@ -36,6 +41,20 @@ public class Factura {
         this.valor_total_factura = valor_total_factura;
         this.lst_items_factura = lst_items_factura;
     }
+    public Factura( String num_factura, int cod_cliente_factura, Cliente cliente_factura, Date fecha, char metodo_pago_factura, double precio_total_factura, double valor_extra_factura, double valor_total_factura, ArrayList<Items> lst_items_factura) {
+              this.num_factura = num_factura;
+        this.cod_cliente_factura = cod_cliente_factura;
+        this.cliente_factura = cliente_factura;
+        this.fecha = fecha;
+        this.metodo_pago_factura = metodo_pago_factura;
+        this.precio_total_factura = precio_total_factura;
+        this.valor_extra_factura = valor_extra_factura;
+        this.valor_total_factura = valor_total_factura;
+        this.lst_items_factura = lst_items_factura;
+    }
+
+   
+
 
     /**
      * @return the cod_factura
@@ -161,6 +180,20 @@ public class Factura {
      */
     public void setLst_items_factura(ArrayList<Items> lst_items_factura) {
         this.lst_items_factura = lst_items_factura;
+    }
+
+    /**
+     * @return the num_factura
+     */
+    public String getNum_factura() {
+        return num_factura;
+    }
+
+    /**
+     * @param num_factura the num_factura to set
+     */
+    public void setNum_factura(String num_factura) {
+        this.num_factura = num_factura;
     }
 
     
